@@ -11,6 +11,8 @@ import { theme } from '../core/theme'
 import { emailValidator } from '../helpers/emailValidator'
 import { passwordValidator } from '../helpers/passwordValidator'
 import { nameValidator } from '../helpers/nameValidator'
+import axios from 'axios'
+import { Api_login } from '../api/api_login'
 
 export default function RegisterScreen({ navigation }) {
   const [name, setName] = useState({ value: '', error: '' })
@@ -26,20 +28,37 @@ export default function RegisterScreen({ navigation }) {
       setEmail({ ...email, error: emailError })
       setPassword({ ...password, error: passwordError })
       return
+    } else {
+      axios
+        .post('http://127.0.0.1:4000/api/app', {
+          name: name.value,
+          email: email.value,
+          password: password.value
+        })
+        .then(function (response) {
+          // handle success
+          alert(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          // handle error
+          alert(error.message);
+        });
     }
+    /*
     navigation.reset({
       index: 0,
       routes: [{ name: 'Dashboard' }],
-    })
+    })*/
+
   }
 
   return (
     <Background>
       <BackButton goBack={navigation.goBack} />
       <Logo />
-      <Header>Create Account</Header>
+      <Header>Crear cuenta</Header>
       <TextInput
-        label="Name"
+        label="Nombre"
         returnKeyType="next"
         value={name.value}
         onChangeText={(text) => setName({ value: text, error: '' })}
@@ -47,7 +66,7 @@ export default function RegisterScreen({ navigation }) {
         errorText={name.error}
       />
       <TextInput
-        label="Email"
+        label="Correo"
         returnKeyType="next"
         value={email.value}
         onChangeText={(text) => setEmail({ value: text, error: '' })}
@@ -59,7 +78,7 @@ export default function RegisterScreen({ navigation }) {
         keyboardType="email-address"
       />
       <TextInput
-        label="Password"
+        label="Contraseña"
         returnKeyType="done"
         value={password.value}
         onChangeText={(text) => setPassword({ value: text, error: '' })}
@@ -72,12 +91,12 @@ export default function RegisterScreen({ navigation }) {
         onPress={onSignUpPressed}
         style={{ marginTop: 24 }}
       >
-        Sign Up
+        Registrase
       </Button>
       <View style={styles.row}>
-        <Text>Already have an account? </Text>
+        <Text>Tiene una cuenta? </Text>
         <TouchableOpacity onPress={() => navigation.replace('LoginScreen')}>
-          <Text style={styles.link}>Login</Text>
+          <Text style={styles.link}>Iniciar Session</Text>
         </TouchableOpacity>
       </View>
     </Background>
