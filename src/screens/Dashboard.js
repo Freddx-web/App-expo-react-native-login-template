@@ -1,26 +1,22 @@
 import React, {useRef, useState} from 'react';
 import { View, useWindowDimensions, DrawerLayoutAndroid, Text,
-  StyleSheet} from 'react-native';
+  StyleSheet } from 'react-native';
 import { Layout} from "react-native-rapi-ui";
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { Button} from '@rneui/themed';
 import { FAB, Portal, PaperProvider } from 'react-native-paper';
 
 // Components
-
-const FirstRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#E0C8F9' }} />
-);
-
-const SecondRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#FBF1FE' }} >
-
-  </View>
-);
+import FirstRoute from "./TabNavigator/FirstRoute";
+import SecondRoute from "./TabNavigator/SecondRoute";
+import ThirdRoute from "./TabNavigator/ThirddRoute.js"
+import FourRoute from "./TabNavigator/FourRoute"
 
 const renderScene = SceneMap({
   first: FirstRoute,
   second: SecondRoute,
+  third: ThirdRoute,
+  four: FourRoute
 });
 
 export default function Dashboard({ navigation }) {
@@ -45,8 +41,10 @@ export default function Dashboard({ navigation }) {
   // Scene Tab
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'first', title: 'First' },
-    { key: 'second', title: 'Second' },
+    { key: 'first', title: '👤' },
+    { key: 'second', title: '💬' },
+    { key: 'third', title: '🗂' },
+    { key: 'four', title: '🛠' },
   ]);
   
   // FAB.Group
@@ -88,18 +86,19 @@ export default function Dashboard({ navigation }) {
                 size: 15,
                 color: 'white',
               }}
-              buttonStyle={{ backgroundColor: 'rgba(127, 220, 103, 1)' }}
+              buttonStyle={{ backgroundColor: 'rgb(119, 36, 203)' }}
               titleStyle={{
                 color: 'white',
                 marginHorizontal: 20,
               }}
               onPress={() => drawer.current.openDrawer()} 
             />
-            <TabView
+            <TabView 
+              
               navigationState={{ index, routes }}
               renderScene={renderScene}
               onIndexChange={setIndex}
-              initialLayout={{ width: layout.width }}
+              initialLayout={{ width: layout.width, }}
             />
             <FAB.Group
               open={open}
