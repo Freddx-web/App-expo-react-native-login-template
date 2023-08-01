@@ -16,7 +16,6 @@ import ApiCard1 from "../../api/ApiCard1"
   
     // Loading
 
-
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView
@@ -25,8 +24,6 @@ import ApiCard1 from "../../api/ApiCard1"
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }>
 
-
-         
           <Text>Panel</Text>
           <Text>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
