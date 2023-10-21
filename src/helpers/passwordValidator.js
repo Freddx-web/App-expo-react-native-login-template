@@ -1,5 +1,5 @@
 export function passwordValidator(password) {
-  if (!password) return "Password can't be empty."
-  if (password.length < 5) return 'Password must be at least 5 characters long.'
+  if (!password) return 'El campo "Contraseña" de usuario esta vacio.'
+  if (password.length < 7) return 'La "Contraseña" debe tener al menos 7 caracteres.'
   return ''
 }

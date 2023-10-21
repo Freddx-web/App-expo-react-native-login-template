@@ -4,7 +4,7 @@ import { View, useWindowDimensions, DrawerLayoutAndroid, Text,
 
   const FourRoute = () => (
     <View style={{ flex: 1, backgroundColor: '#FEFDE6' }} >
-
+<Text style={{fontSize:40}}>Configuracion 🛠</Text>
     </View>
   );
   

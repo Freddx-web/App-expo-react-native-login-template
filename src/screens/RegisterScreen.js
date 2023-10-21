@@ -8,36 +8,37 @@ import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 import BackButton from '../components/BackButton'
 import { theme } from '../core/theme'
+
 import { emailValidator } from '../helpers/emailValidator'
 import { passwordValidator } from '../helpers/passwordValidator'
 import { nameValidator } from '../helpers/nameValidator'
 import axios from 'axios'
 
-
 export default function RegisterScreen({ navigation }) {
-  const [name, setName] = useState({ value: '', error: '' })
+  
+  const [username, setuserName] = useState({ value: '', error: '' })
   const [email, setEmail] = useState({ value: '', error: '' })
   const [password, setPassword] = useState({ value: '', error: '' })
 
-  const onSignUpPressed = () => {
-    const nameError = nameValidator(name.value)
+  const onChangeHandler = () => {
+    const usernameError = nameValidator(username.value)
     const emailError = emailValidator(email.value)
     const passwordError = passwordValidator(password.value)
-    if (emailError || passwordError || nameError) {
-      setName({ ...name, error: nameError })
+    if (emailError || passwordError || usernameError) {
+      setuserName({ ...username, error: usernameError })
       setEmail({ ...email, error: emailError })
       setPassword({ ...password, error: passwordError })
       return
     } else {
       axios
-        .post('http://127.0.0.1:4000/api/app', {
-          name: name.value,
+        .post('http://localhost:4000/api/auth/register', {
+          username: username.value,
           email: email.value,
           password: password.value
         })
         .then(function (response) {
           // handle success
-          alert(JSON.stringify(response.data));
+          alert(JSON.stringify(response.alert));
         })
         .catch(function (error) {
           // handle error
@@ -47,7 +48,7 @@ export default function RegisterScreen({ navigation }) {
     /*
     navigation.reset({
       index: 0,
-      routes: [{ name: 'Dashboard' }],
+      routes: [{ username: 'Dashboard' }],
     })*/
 
   }
@@ -60,13 +61,13 @@ export default function RegisterScreen({ navigation }) {
       <TextInput
         label="Nombre"
         returnKeyType="next"
-        value={name.value}
-        onChangeText={(text) => setName({ value: text, error: '' })}
-        error={!!name.error}
-        errorText={name.error}
+        value={username.value}
+        onChangeText={(text) => setuserName({ value: text, error: '' })}
+        error={!!username.error}
+        errorText={username.error}
       />
       <TextInput
-        label="Correo"
+        label="Email"
         returnKeyType="next"
         value={email.value}
         onChangeText={(text) => setEmail({ value: text, error: '' })}
@@ -88,7 +89,7 @@ export default function RegisterScreen({ navigation }) {
       />
       <Button
         mode="contained"
-        onPress={onSignUpPressed}
+        onPress={onChangeHandler}
         style={{ marginTop: 24 }}
       >
         Registrase

@@ -4,7 +4,7 @@ import { View, useWindowDimensions, DrawerLayoutAndroid, Text,
 
   const SecondRoute = () => (
     <View style={{ flex: 1, backgroundColor: '#E6FAFE' }} >
-
+       <Text style={{fontSize:40}}>Vista de Chat 💬</Text>
     </View>
   );
   

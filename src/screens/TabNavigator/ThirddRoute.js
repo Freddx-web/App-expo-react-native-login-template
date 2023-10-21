@@ -4,7 +4,7 @@ import { View, useWindowDimensions, DrawerLayoutAndroid, Text,
 
   const ThirdRoute = () => (
     <View style={{ flex: 1, backgroundColor: '#FBF1FE' }} >
-
+<Text style={{fontSize:40}}>Vista de Archivos 🗂</Text>
     </View>
   );
   

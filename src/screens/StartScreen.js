@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { StyleSheet, Text, View, Animated } from "react-native"
+import { StyleSheet, Text, View, Animated } from "react-native";
+//import LinearGradient from 'react-native-linear-gradient';
 
 import Background from '../components/Background'
 import Logo from '../components/Logo'
@@ -8,7 +9,7 @@ import Button from '../components/Button'
 import Paragraph from '../components/Paragraph'
 
 export default function StartScreen({ navigation }) {
-/*
+  /*
   const [fadeIn, setFadeIn] = useState(new Animated.Value(0));
   const [fadeInSlow, setFadeInSlow] = useState(new Animated.Value(0));
 
@@ -27,27 +28,19 @@ export default function StartScreen({ navigation }) {
 
   return (
     <Background>
-      
       <Logo />
-
-      
-      <Header>Login Template</Header>
-      
-
+      <Header>DalePlay</Header>
       
       <Paragraph>
-        Una forma para iniciar y registrarse
+        Bienvenido
       </Paragraph>
       
-
-
       <Button
         mode="contained"
         onPress={() => navigation.navigate('LoginScreen')}
       >
         Iniciar session
       </Button>
-
 
       <Button
         mode="outlined"
@@ -58,3 +51,20 @@ export default function StartScreen({ navigation }) {
     </Background>
   )
 }
+
+const styles = StyleSheet.create({
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: 'Gill Sans',
+    textAlign: 'center',
+    margin: 10,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+  },
+});

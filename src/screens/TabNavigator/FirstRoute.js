@@ -2,6 +2,10 @@ import React, {useRef, useState} from 'react';
 import { View, useWindowDimensions, DrawerLayoutAndroid, Text,
   StyleSheet, RefreshControl, SafeAreaView, ScrollView} from 'react-native';
 
+import { Section, SectionContent } from "react-native-rapi-ui";
+
+import { FAB } from 'react-native-paper';
+
 import ApiCard1 from "../../api/ApiCard1"
 
   const FirstRoute = () => {
@@ -16,6 +20,7 @@ import ApiCard1 from "../../api/ApiCard1"
   
     // Loading
 
+
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView
@@ -23,17 +28,17 @@ import ApiCard1 from "../../api/ApiCard1"
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }>
+          
+<Section style={styles.Section}>
+          <SectionContent style={styles.SectionContent}>
+          <Text style={{fontSize:40}}>Bienvenido 👤</Text>
+           
 
-          <Text>Panel</Text>
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. 
-            {"\n"}
-            {"\n"}
-          </Text> 
-      
-           <ApiCard1 />
-
+            
+         
+          
+</SectionContent>
+          </Section>
 
         </ScrollView>
       </SafeAreaView>
@@ -49,10 +54,24 @@ import ApiCard1 from "../../api/ApiCard1"
     scrollView: {
       alignItems: 'center',
       justifyContent: 'center',
+      paddingTop:50
+    },
+    Section:{
+      
+    },
+    SectionContent:{
+      width:400,
+      height:700
     },
     Title:{
       alignItems:'',
-    }
+    },
+    fab: {
+      position: 'absolute',
+      margin: 16,
+      right: 0,
+      bottom: 0,
+    },
   });
 
 

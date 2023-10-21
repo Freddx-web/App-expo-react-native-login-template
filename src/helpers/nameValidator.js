@@ -1,4 +1,4 @@
-export function nameValidator(name) {
-  if (!name) return "Name can't be empty."
+export function nameValidator(username) {
+  if (!username) return 'El campo "Nombre" de usuario esta vacio.'
   return ''
 }

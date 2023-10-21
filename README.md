@@ -76,6 +76,7 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]]
+[![Product Name Screen Shot2][product-screenshot2]]
 
 Test the React Native project with [Expo Go](https://expo.dev/), using the [React Navigation](https://reactnavigation.org/) components as main templates for the development framework.
 

@@ -9,7 +9,7 @@ const ApiCard = () => {
 
   // API
   const [fetchedState,setFetchedState]=useState(null);
-  const [usersData,setUsersData]=useState([])
+  const [usersData,setUsersData]=useState([]);
 
   useEffect(() => {
     setFetchedState('loading')

@@ -1,18 +1,21 @@
 import React from 'react'
+import { LinearGradient } from 'expo-linear-gradient';
 import { ImageBackground, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import { theme } from '../core/theme'
 
 export default function Background({ children }) {
   return (
-    <ImageBackground
-      source={require('../assets/background_dot.png')}
-      resizeMode="repeat"
+    
+    <LinearGradient
+      // Background Linear Gradient
+      colors={['#fff', '#7d6f9987']} //transparent
       style={styles.background}
     >
       <KeyboardAvoidingView style={styles.container} behavior="padding">
-        {children}
+          {children}  
       </KeyboardAvoidingView>
-    </ImageBackground>
+    </LinearGradient>
+    
   )
 }
 
