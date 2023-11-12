@@ -38,7 +38,7 @@ export default function RegisterScreen({ navigation }) {
         })
         .then(function (response) {
           // handle success
-          alert(JSON.stringify(response.alert));
+          alert(JSON.stringify(response.message));
         })
         .catch(function (error) {
           // handle error

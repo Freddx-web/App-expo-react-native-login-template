@@ -23,9 +23,9 @@ export default function ResetPasswordScreen({ navigation }) {
     <Background>
       <BackButton goBack={navigation.goBack} />
       <Logo />
-      <Header>Restore Password</Header>
+      <Header>Restaurar contraseña</Header>
       <TextInput
-        label="E-mail address"
+        label="Dirección de correo electrónico"
         returnKeyType="done"
         value={email.value}
         onChangeText={(text) => setEmail({ value: text, error: '' })}
@@ -35,14 +35,14 @@ export default function ResetPasswordScreen({ navigation }) {
         autoCompleteType="email"
         textContentType="emailAddress"
         keyboardType="email-address"
-        description="You will receive email with password reset link."
+        description="Recibirá un correo electrónico con un enlace para restablecer la contraseña."
       />
       <Button
         mode="contained"
         onPress={sendResetPasswordEmail}
         style={{ marginTop: 16 }}
       >
-        Send Instructions
+        Enviar instrucciones
       </Button>
     </Background>
   )

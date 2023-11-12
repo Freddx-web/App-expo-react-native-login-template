@@ -23,6 +23,8 @@ const styles = StyleSheet.create({
     width: '100%',
     marginVertical: 10,
     paddingVertical: 2,
+    borderColor: '#18c97991',
+    borderWidth:2
   },
   text: {
     fontWeight: 'bold',

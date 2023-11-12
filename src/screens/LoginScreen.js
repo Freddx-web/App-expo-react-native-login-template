@@ -59,14 +59,14 @@ export default function LoginScreen({ navigation }) {
         <TouchableOpacity
           onPress={() => navigation.navigate('ResetPasswordScreen')}
         >
-          <Text style={styles.forgot}>Forgot your password?</Text>
+          <Text style={styles.forgot}>Olvidaste tu contraseña.?</Text>
         </TouchableOpacity>
       </View>
       <Button mode="contained" onPress={onLoginPressed}>
-        Login
+        Inciar Session
       </Button>
       <View style={styles.row}>
-        <Text>Don’t have an account? </Text>
+        <Text>No tienes una cuenta.? </Text>
         <TouchableOpacity onPress={() => navigation.replace('RegisterScreen')}>
           <Text style={styles.link}>Sign up</Text>
         </TouchableOpacity>

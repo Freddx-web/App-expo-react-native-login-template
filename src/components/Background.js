@@ -8,7 +8,7 @@ export default function Background({ children }) {
     
     <LinearGradient
       // Background Linear Gradient
-      colors={['#fff', '#7d6f9987']} //transparent
+      colors={['#fff', '#00ff6887']} //transparent
       style={styles.background}
     >
       <KeyboardAvoidingView style={styles.container} behavior="padding">
