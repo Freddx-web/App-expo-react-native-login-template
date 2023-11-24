@@ -6,19 +6,6 @@ import { TabView, SceneMap } from 'react-native-tab-view';
 import { Button} from '@rneui/themed';
 import { FAB, Portal, PaperProvider } from 'react-native-paper';
 
-// Components
-import FirstRoute from "./TabNavigator/FirstRoute";
-import SecondRoute from "./TabNavigator/SecondRoute";
-import ThirdRoute from "./TabNavigator/ThirddRoute.js"
-import FourRoute from "./TabNavigator/FourRoute"
-
-const renderScene = SceneMap({
-  first: FirstRoute,
-  second: SecondRoute,
-  third: ThirdRoute,
-  four: FourRoute
-});
-
 
 
 export default function Dashboard({ navigation }) {
@@ -61,21 +48,6 @@ const styles = StyleSheet.create({
 });
 
 
-
-  // Scene Tab
-  const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
-    { key: 'first', title: '👤' },
-    { key: 'second', title: '💬' },
-    { key: 'third', title: '🗂' },
-    { key: 'four', title: '🛠' },
-  ]);
-  
-  // FAB.Group
-  const [state, setState] = React.useState({ open: false });
-  const onStateChange = ({ open }) => setState({ open });
-  const { open } = state;
-
   // layout
   const layout = useWindowDimensions();
 
@@ -87,6 +59,7 @@ const styles = StyleSheet.create({
     <View style={[styles.container, styles.navigationContainer]}>
     <Text style={styles.paragraph}>I'm in the Drawer!</Text>
       <Button
+        color={'#4caf50'}
         title="Close drawer"
         onPress={() => drawer.current.closeDrawer()}
       />
@@ -125,48 +98,14 @@ const DashboardView = () => {
             size: 15,
             color: 'white',
           }}
-          buttonStyle={{ backgroundColor: 'rgb(119, 36, 203)' }}
+          buttonStyle={{ backgroundColor: '#4caf50' }}
           titleStyle={{
             color: 'white',
             marginHorizontal: 20,
           }}
           onPress={() => drawer.current.openDrawer()} 
         />
-        <TabView 
-          navigationState={{ index, routes }}
-          renderScene={renderScene}
-          onIndexChange={setIndex}
-          initialLayout={{ width: layout.width, }}
-        />
-        <FAB.Group
-          open={open}
-          visible
-          icon={open ? 'calendar-today' : 'plus'}
-          actions={[
-            { icon: 'plus', onPress: () => console.log('Pressed add') },
-            {
-              icon: 'star',
-              label: 'Star',
-              onPress: () => console.log('Pressed star'),
-            },
-            {
-              icon: 'email',
-              label: 'Email',
-              onPress: () => console.log('Pressed email'),
-            },
-            {
-              icon: 'bell',
-              label: 'Remind',
-              onPress: () => console.log('Pressed notifications'),
-            },
-          ]}
-          onStateChange={onStateChange}
-          onPress={() => {
-            if (open) {
-            // do something if the speed dial is open
-            }
-          }}
-        />
+
       </Portal>
     </PaperProvider>
   )
@@ -194,16 +133,7 @@ const fadeIn = () => {
               Loading
             </Text> 
             
-
-
-            <Animated.View
-        style={[
-          styles.fadingContainer,
-          {
-            // Bind opacity to animated value
-            opacity: fadeAnim,
-          },
-        ]}>
+            <Animated.View  style={[ styles.fadingContainer,{ opacity: fadeAnim,},]}>
         <Text> By DalePlay</Text>
       </Animated.View>
 

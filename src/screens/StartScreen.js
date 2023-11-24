@@ -9,22 +9,6 @@ import Button from '../components/Button'
 import Paragraph from '../components/Paragraph'
 
 export default function StartScreen({ navigation }) {
-  /*
-  const [fadeIn, setFadeIn] = useState(new Animated.Value(0));
-  const [fadeInSlow, setFadeInSlow] = useState(new Animated.Value(0));
-
-  React.useEffect(() => {
-
-    Animated.timing(fadeIn,{
-      toValue: 1,
-      duration: 1000
-    }).start();
-    
-    Animated.timing(fadeInSlow,{
-      toValue: 1,
-      duration: 2000
-    }).start();
-  }) */
 
   return (
     <Background>
@@ -43,11 +27,19 @@ export default function StartScreen({ navigation }) {
       </Button>
 
       <Button
-        mode="outlined"
+        mode="contained"
         onPress={() => navigation.navigate('RegisterScreen')}
       >
         Registrarse
       </Button>
+
+      <Button
+        mode="outlined"
+        onPress={() => navigation.navigate('Dashboard')}
+      >
+        Dashboard
+      </Button>
+
     </Background>
   )
 }

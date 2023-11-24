@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
-import { Text } from 'react-native-paper'
+import React, {useState, useEffect} from 'react';
+import { View, StyleSheet, TouchableOpacity, Alert } from 'react-native'
+import { Avatar, Card,Text } from 'react-native-paper'
+
+// Components
 import Background from '../components/Background'
 import Logo from '../components/Logo'
 import Header from '../components/Header'
@@ -8,7 +10,7 @@ import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 import BackButton from '../components/BackButton'
 import { theme } from '../core/theme'
-
+// Helpers
 import { emailValidator } from '../helpers/emailValidator'
 import { passwordValidator } from '../helpers/passwordValidator'
 import { nameValidator } from '../helpers/nameValidator'
@@ -21,6 +23,11 @@ export default function RegisterScreen({ navigation }) {
   const [password, setPassword] = useState({ value: '', error: '' })
 
   const onChangeHandler = () => {
+    //
+    const AlerView = () => {
+      
+    }
+
     const usernameError = nameValidator(username.value)
     const emailError = emailValidator(email.value)
     const passwordError = passwordValidator(password.value)
@@ -30,27 +37,56 @@ export default function RegisterScreen({ navigation }) {
       setPassword({ ...password, error: passwordError })
       return
     } else {
+
+// handle success
+Alert.alert( 
+  'Alert 111',
+  'My Alert Msg',
+  [
+    {
+      text: 'Cancel',
+      onPress: () => Alert.alert('Cancel Pressed'),
+      style: 'cancel',
+    },
+  ],
+  {
+    cancelable: true,
+    onDismiss: () =>
+      Alert.alert(
+        'This alert was dismissed by tapping outside of the alert dialog.',
+      ),
+  },
+);
+      
       axios
         .post('http://localhost:4000/api/auth/register', {
           username: username.value,
           email: email.value,
           password: password.value
         })
+        
         .then(function (response) {
-          // handle success
+          
           alert(JSON.stringify(response.message));
+            
         })
         .catch(function (error) {
           // handle error
-          alert(error.message);
+          alert(error.data);
         });
-    }
-    /*
+
+
+
+
+        
+
+     /*
     navigation.reset({
       index: 0,
       routes: [{ username: 'Dashboard' }],
     })*/
 
+    }
   }
 
   return (
