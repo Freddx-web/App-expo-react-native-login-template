@@ -57,8 +57,8 @@ Alert.alert(
       ),
   },
 );
-      
-      axios
+      /*
+      axios // https://www.geeksforgeeks.org/axios-in-react-native/
         .post('http://localhost:4000/api/auth/register', {
           username: username.value,
           email: email.value,
@@ -66,14 +66,14 @@ Alert.alert(
         })
         
         .then(function (response) {
-          
+
           alert(JSON.stringify(response.message));
             
         })
         .catch(function (error) {
           // handle error
           alert(error.data);
-        });
+        }); */
 
 
 
