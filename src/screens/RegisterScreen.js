@@ -37,6 +37,37 @@ export default function RegisterScreen({ navigation }) {
       setPassword({ ...password, error: passwordError })
       return
     } else {
+      
+      const baseURL = 'http://localhost:4000/api/auth/register';
+      
+      axios.post(baseURL, {
+        username: username.value,
+        email: email.value,
+        password: password.value
+      })
+      
+      .then(function (response) {
+        //alert(JSON.stringify(response.message));
+
+        if (!response.data) {
+           
+        } 
+          
+      })
+      .catch(function (error) {
+        // handle error
+        alert(error.data);
+      })
+      .finally(function () {
+        // always executed
+        alert('Finally called');
+      });
+
+
+
+      
+
+
 
 // handle success
 Alert.alert( 
@@ -57,23 +88,8 @@ Alert.alert(
       ),
   },
 );
-      /*
-      axios // https://www.geeksforgeeks.org/axios-in-react-native/
-        .post('http://localhost:4000/api/auth/register', {
-          username: username.value,
-          email: email.value,
-          password: password.value
-        })
-        
-        .then(function (response) {
-
-          alert(JSON.stringify(response.message));
-            
-        })
-        .catch(function (error) {
-          // handle error
-          alert(error.data);
-        }); */
+      
+      
 
 
 

@@ -7,17 +7,24 @@ import Logo from '../components/Logo'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import Paragraph from '../components/Paragraph'
+import FadeInView from '../components/FadeInView'
 
 export default function StartScreen({ navigation }) {
 
   return (
     <Background>
+
+      <FadeInView>
       <Logo />
       <Header>DalePlay</Header>
       
+      
+  
       <Paragraph>
         Bienvenido
       </Paragraph>
+      
+      </FadeInView>
       
       <Button
         mode="contained"
@@ -39,6 +46,7 @@ export default function StartScreen({ navigation }) {
       >
         Dashboard
       </Button>
+      
 
     </Background>
   )
