@@ -7,7 +7,7 @@ import { FAB, Portal, PaperProvider } from 'react-native-paper';
 import { Layout, TopNav } from 'react-native-rapi-ui';
 
 
-//import PanelView from './views/Panelview.js';
+import PanelView from './views/Panelview.js';
 
 export default function Dashboard({ navigation }) {
   //---------------------------------
@@ -79,41 +79,40 @@ export default function Dashboard({ navigation }) {
         onPress={() => drawer.current.closeDrawer()}
       />
     </View>
- );
-//************************************************** */
-// Loading Style
-const [fetchedState,setFetchedState]=useState(null);
-const [usersData,setUsersData]=useState([]);
-useEffect(() => {
-  setFetchedState('loading')
-  setTimeout(()=>getData(),9000);
-},[]);
+  );
+  //************************************************** */
+  // Loading Style
+  const [fetchedState,setFetchedState]=useState(null);
+  const [usersData,setUsersData]=useState([]);
+  useEffect(() => {
+    setFetchedState('loading')
+    setTimeout(()=>getData(),9000);
+  },[]);
 
-const getData=async() => {
-  try { //'https://jsonplaceholder.typicode.com/users'
-    const response=await fetch('https://jsonplaceholder.typicode.com/users');
-    const data=await response.json();
-    setUsersData(data)
+  const getData=async() => {
+    try { //'https://jsonplaceholder.typicode.com/users'
+      const response=await fetch('https://jsonplaceholder.typicode.com/users');
+      const data=await response.json();
+      setUsersData(data)
+    }
+    catch(error){
+      console.log(error)
+    }
+    finally{
+      setFetchedState(null);
+    }
   }
-  catch(error){
-    console.log(error)
-  }
-  finally{
-    setFetchedState(null);
-  }
-}
-const fadeAnim = useRef(new Animated.Value(0)).current;
-const fadeIn = () => {
-  // Will change fadeAnim value to 1 in 5 seconds
-  Animated.timing(fadeAnim, {
-    toValue: 1,
-    duration: 2000,
-    useNativeDriver: true,
-  }).start();
-};
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fadeIn = () => {
+    // Will change fadeAnim value to 1 in 5 seconds
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 2000,
+      useNativeDriver: true,
+    }).start();
+  };
 
-//************************************************** */
-
+  //************************************************** */
 
   return (
     <Layout>
@@ -148,8 +147,7 @@ const fadeIn = () => {
               />
 
 
-
-
+              <PanelView />
 
 
             </Portal>
