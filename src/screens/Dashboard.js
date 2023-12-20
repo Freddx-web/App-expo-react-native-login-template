@@ -86,7 +86,7 @@ export default function Dashboard({ navigation }) {
   const [usersData,setUsersData]=useState([]);
   useEffect(() => {
     setFetchedState('loading')
-    setTimeout(()=>getData(),9000);
+    setTimeout(()=>getData(),3000);
   },[]);
 
   const getData=async() => {

@@ -6,6 +6,8 @@ import {
   StatusBar, View, Text
 } from 'react-native';
   //
+  import CountryFlag from "react-native-country-flag";
+
   export const pieData = [
     {
       value: 47,
@@ -50,7 +52,7 @@ import {
               marginRight: 20
             }}>
             {renderDot('#009FFF')/** #006DFF */} 
-            <Text style={{color: 'white'}}>Excellent: 47%</Text>
+            <Text style={{color: 'white'}}>USD: 47%</Text>
           </View>
           <View
             style={{flexDirection: 'row', alignItems: 'center', width: 120}}>
@@ -67,7 +69,7 @@ import {
               marginRight: 20,
             }}>
             {renderDot('#3BE9DE')}
-            <Text style={{color: 'white'}}>Good: 40%</Text>
+            <Text style={{color: 'white'}}>EUR: 40%</Text>
           </View>
           <View
             style={{flexDirection: 'row', alignItems: 'center', width: 120}}>

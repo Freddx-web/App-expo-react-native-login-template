@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { StyleSheet, Text, View, Animated } from "react-native";
+import { StyleSheet, Text, View, Animated,
+SafeAreaView, ScrollView, StatusBar} from "react-native";
 //import LinearGradient from 'react-native-linear-gradient';
 
 import Background from '../components/Background'
@@ -12,7 +13,16 @@ import FadeInView from '../components/FadeInView'
 export default function StartScreen({ navigation }) {
 
   return (
+
+
+
     <Background>
+
+
+
+
+
+
 
       <FadeInView>
       <Logo />
@@ -47,12 +57,18 @@ export default function StartScreen({ navigation }) {
         Dashboard
       </Button>
       
-
+    
     </Background>
+
+
+
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   linearGradient: {
     flex: 1,
     paddingLeft: 15,
