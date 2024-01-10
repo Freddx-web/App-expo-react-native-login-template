@@ -7,16 +7,14 @@ import { Text, Stack, View } from "@react-native-material/core";
 import { Divider } from '@rneui/themed';
 import { Avatar, Card } from 'react-native-paper';
 
-import CoinItem from './CoinItem.js'
+import CoinItem from '../TabViews/CoinItem.js'
 
-const CriptsViews = () => {
+const ViewCripts = () => {
 
-  // Set
   const [coins, setCoins] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
   const [search, setSearch] = useState("");
 
-  // Api Fetch
   const loadData = async () => {
     const res = await fetch(
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
@@ -28,19 +26,21 @@ const CriptsViews = () => {
   useEffect(() => {
     loadData();
   }, []);
-  
-  // Icon 
+
   const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
+
 
   return(
     <SafeAreaView style={styles.container}>
 
-      <Text h1> Criptos  {"\n"}</Text>
-      
+
+
+      <Text h1> Criptos  </Text>
+
       <Divider />
       
       <Card>
-        <FlatList
+      <FlatList
           style={styles.list}
           data={coins.filter(
             (coin) =>
@@ -56,9 +56,11 @@ const CriptsViews = () => {
             setRefreshing(false);
           }}
         />
-      </Card>
+</Card>
+
     </SafeAreaView>
   )
+  
 }
 
 const styles = StyleSheet.create({
@@ -88,4 +90,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CriptsViews; 
+export default ViewCripts; 

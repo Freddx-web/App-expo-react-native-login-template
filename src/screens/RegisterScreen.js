@@ -10,7 +10,6 @@ import Header from '../components/Header'
 import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 import BackButton from '../components/BackButton'
-import Paragraph from '../components/Paragraph'
 import { theme } from '../core/theme'
 // Helpers
 import { emailValidator } from '../helpers/emailValidator'
@@ -172,7 +171,7 @@ const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
         Registrase
       </Button>
       <View style={styles.row}>
-        <Paragraph>Tiene una cuenta? </Paragraph>
+        <Text>Tiene una cuenta? </Text>
         <TouchableOpacity onPress={() => navigation.replace('LoginScreen')}>
           <Text style={styles.link}>Iniciar Session</Text>
         </TouchableOpacity>

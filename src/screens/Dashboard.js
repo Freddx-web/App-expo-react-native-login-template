@@ -5,9 +5,10 @@ import { TabView, SceneMap } from 'react-native-tab-view';
 import { Button} from '@rneui/themed';
 import { FAB, Portal, PaperProvider } from 'react-native-paper';
 import { Layout, TopNav } from 'react-native-rapi-ui';
-
-
+import { Divider } from "@react-native-material/core";
+// Views
 import PanelView from './views/Panelview.js';
+import DrawerView  from './views/DrawerView.js'
 
 export default function Dashboard({ navigation }) {
   //---------------------------------
@@ -45,7 +46,6 @@ export default function Dashboard({ navigation }) {
   //  LoadingView
   //---------------------------------
   const LoadingView = () => {
-
     return(
       <SafeAreaView style={styles.container}>
         <Text style={styles.loadingtext}>
@@ -63,16 +63,20 @@ export default function Dashboard({ navigation }) {
 
   //---------------------------------
   // layout
-  //---------------------------------
   const layout = useWindowDimensions();
-
-  // drawer 
+  //************************************************** */
+  // Drawer 
   const drawer = useRef(null);
   const [drawerPosition, setDrawerPosition] = useState('left');
-
   const navigationView = () => (
-    <View style={[styles.container, styles.navigationContainer]}>
-      <Text style={styles.paragraph}>I'm in the Drawer!</Text>
+    <View>
+      
+
+
+
+      <DrawerView />
+      
+      <Divider />
       <Button
         color={'#4caf50'}
         title="Close drawer"
@@ -88,7 +92,6 @@ export default function Dashboard({ navigation }) {
     setFetchedState('loading')
     setTimeout(()=>getData(),3000);
   },[]);
-
   const getData=async() => {
     try { //'https://jsonplaceholder.typicode.com/users'
       const response=await fetch('https://jsonplaceholder.typicode.com/users');
@@ -111,23 +114,18 @@ export default function Dashboard({ navigation }) {
       useNativeDriver: true,
     }).start();
   };
-
   //************************************************** */
-
   return (
     <Layout>
       { 
         fetchedState ? 
-
           <LoadingView />
         :
-
         <DrawerLayoutAndroid
           ref={drawer}
           drawerWidth={300}
           drawerPosition={drawerPosition}
           renderNavigationView={navigationView}>
-
           <PaperProvider>
             <Portal>
               <Button
@@ -145,11 +143,7 @@ export default function Dashboard({ navigation }) {
                 }}
               onPress={() => drawer.current.openDrawer()} 
               />
-
-
               <PanelView />
-
-
             </Portal>
           </PaperProvider>
         </DrawerLayoutAndroid>

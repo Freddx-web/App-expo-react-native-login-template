@@ -10,6 +10,7 @@ const CoinItem = ({ coin }) => (
     <View style={styles.coinName}>
       <Image source={{ uri: coin.image }} style={styles.image} />
       <View style={styles.containerNames}>
+        
         <Text>{coin.market_cap_rank}. {coin.name}</Text>
         <Text >{coin.symbol}</Text>
       </View>
@@ -27,6 +28,7 @@ const CoinItem = ({ coin }) => (
         {coin.price_change_percentage_24h.toFixed(2)}%
         {"\n"}
         {"\n"}
+
       </Text>
     </View>
   </View>
