@@ -19,21 +19,16 @@ const PanelView = () => {
       variant="primary"
     >
       <Tab.Item
-        title="Billetera"
+        title="Tienda"
+        titleStyle={{ fontSize: 12 }}
+        icon={{ name: 'cart', type: 'ionicon', color: 'white' }}
+      />
+      <Tab.Item 
+        title="Mi Cuenta"
         titleStyle={{ fontSize: 12 }}
         icon={{ name: 'wallet', type: 'ionicon', color: 'white' }}
       />
-      <Tab.Item 
-        title="Trading"
-        titleStyle={{ fontSize: 12 }}
-        icon={{ name: 'stats-chart', type: 'ionicon', color: 'white' }}
-      />
-      {/*
-      <Tab.Item
-        title="Exchange"
-        titleStyle={{ fontSize: 12 }}
-        icon={{ name: 'bar-chart-outline', type: 'ionicon', color: 'white' }}
-      /> */}
+
 
       <Tab.Item
         title="Criptos"
@@ -50,11 +45,6 @@ const PanelView = () => {
       <TabView.Item style={{ backgroundColor: '#afdce133', width: '100%' }}>
         <Text h1>Favorite</Text>
       </TabView.Item>
-      {/*
-      <TabView.Item style={{ backgroundColor: '#afdce133', width: '100%' }}>
-        <Text h1>Cart</Text>
-      </TabView.Item>*/}
-      
       <TabView.Item style={{ backgroundColor: '#afdce133', width: '100%' }}>
 
         <ViewCripts />

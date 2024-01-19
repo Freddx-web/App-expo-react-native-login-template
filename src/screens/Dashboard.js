@@ -3,13 +3,13 @@ import { View, useWindowDimensions, DrawerLayoutAndroid, Text,
   StyleSheet, SafeAreaView, ActivityIndicator, Animated } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { Button} from '@rneui/themed';
-import { FAB, Portal, PaperProvider } from 'react-native-paper';
+import { Portal, PaperProvider, Divider } from 'react-native-paper';
 import { Layout, TopNav } from 'react-native-rapi-ui';
-import { Divider } from "@react-native-material/core";
+
+
 // Views
 import PanelView from './views/Panelview.js';
 import DrawerView  from './views/DrawerView.js'
-
 export default function Dashboard({ navigation }) {
   //---------------------------------
   // Style
@@ -70,9 +70,6 @@ export default function Dashboard({ navigation }) {
   const [drawerPosition, setDrawerPosition] = useState('left');
   const navigationView = () => (
     <View>
-      
-
-
 
       <DrawerView />
       
@@ -113,7 +110,7 @@ export default function Dashboard({ navigation }) {
       duration: 2000,
       useNativeDriver: true,
     }).start();
-  };
+  };///////
   //************************************************** */
   return (
     <Layout>
@@ -128,6 +125,10 @@ export default function Dashboard({ navigation }) {
           renderNavigationView={navigationView}>
           <PaperProvider>
             <Portal>
+
+
+
+
               <Button
                 title="Outlog"
                 icon={{
@@ -142,8 +143,11 @@ export default function Dashboard({ navigation }) {
                 marginHorizontal: 20,
                 }}
               onPress={() => drawer.current.openDrawer()} 
-              />
-              <PanelView />
+              /> 
+
+
+
+              <PanelView />  
             </Portal>
           </PaperProvider>
         </DrawerLayoutAndroid>
