@@ -49,12 +49,7 @@ export default function RegisterScreen({ navigation }) {
 
     } else {
 
-      const FlatListSeparator = () => {
-        navigation.reset({
-          index: 0,
-          routes: [{ username: 'Dashboard' }],
-        })
-    }
+     
     
 
 

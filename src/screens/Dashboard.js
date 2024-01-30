@@ -5,46 +5,36 @@ import { TabView, SceneMap } from 'react-native-tab-view';
 import { Button} from '@rneui/themed';
 import { Portal, PaperProvider, Divider } from 'react-native-paper';
 import { Layout, TopNav } from 'react-native-rapi-ui';
-
-
 // Views
-import PanelView from './views/Panelview.js';
-import DrawerView  from './views/DrawerView.js'
+import PanelView from './views/Panel/Panelview.js';
+import DrawerView  from './views/Panel/DrawerView.js'
 export default function Dashboard({ navigation }) {
   //---------------------------------
   // Style
   //---------------------------------
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: 16,
+      flex: 1,alignItems: 'center',
+      justifyContent: 'center',padding: 16,
     },
     navigationContainer: {
       backgroundColor: '#ecf0f1',
     },
     paragraph: {
-      padding: 16,
-      fontSize: 15,
-      textAlign: 'center',
+      padding: 16,fontSize: 15,textAlign: 'center',
     },    
     loadingtext:{
-      textAlign: "center",
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontSize: 30,
-      fontWeight: 'bold',
-      color: "#000",
+      textAlign: "center",alignItems: 'center',
+      justifyContent: 'center',fontSize: 30,
+      fontWeight: 'bold',color: "#000",
     }, 
     spinner: {
-      alignItems: "center",
-      justifyContent: "center",
+      alignItems: "center",justifyContent: "center",
     },
   });
-  //---------------------------------
+  //************************************************** */
   //  LoadingView
-  //---------------------------------
+  //************************************************** */
   const LoadingView = () => {
     return(
       <SafeAreaView style={styles.container}>
@@ -60,11 +50,10 @@ export default function Dashboard({ navigation }) {
       </SafeAreaView>  
     )
   }
-
-  //---------------------------------
-  // layout
-  const layout = useWindowDimensions();
   //************************************************** */
+  // layout
+  //************************************************** */
+  const layout = useWindowDimensions();
   // Drawer 
   const drawer = useRef(null);
   const [drawerPosition, setDrawerPosition] = useState('left');
@@ -72,7 +61,7 @@ export default function Dashboard({ navigation }) {
     <View>
 
       <DrawerView />
-      
+
       <Divider />
       <Button
         color={'#4caf50'}
@@ -83,6 +72,7 @@ export default function Dashboard({ navigation }) {
   );
   //************************************************** */
   // Loading Style
+  //************************************************** */
   const [fetchedState,setFetchedState]=useState(null);
   const [usersData,setUsersData]=useState([]);
   useEffect(() => {
@@ -110,7 +100,7 @@ export default function Dashboard({ navigation }) {
       duration: 2000,
       useNativeDriver: true,
     }).start();
-  };///////
+  };
   //************************************************** */
   return (
     <Layout>
@@ -125,10 +115,6 @@ export default function Dashboard({ navigation }) {
           renderNavigationView={navigationView}>
           <PaperProvider>
             <Portal>
-
-
-
-
               <Button
                 title="Outlog"
                 icon={{
@@ -144,9 +130,6 @@ export default function Dashboard({ navigation }) {
                 }}
               onPress={() => drawer.current.openDrawer()} 
               /> 
-
-
-
               <PanelView />  
             </Portal>
           </PaperProvider>

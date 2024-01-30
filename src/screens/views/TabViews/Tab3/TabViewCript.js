@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Button, RefreshControl, StatusBar,
   SafeAreaView, ScrollView, StyleSheet, FlatList } from 'react-native';
@@ -7,7 +6,7 @@ import { Text, Stack, View } from "@react-native-material/core";
 import { Divider } from '@rneui/themed';
 import { Avatar, Card } from 'react-native-paper';
 
-import CoinItem from '../TabViews/CoinItem.js'
+import CoinItem from './CoinItem.js'
 
 const ViewCripts = () => {
 
@@ -29,18 +28,12 @@ const ViewCripts = () => {
 
   const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
-
   return(
     <SafeAreaView style={styles.container}>
-
-
-
       <Text h1> Criptos  </Text>
-
       <Divider />
-      
       <Card>
-      <FlatList
+        <FlatList
           style={styles.list}
           data={coins.filter(
             (coin) =>
@@ -56,11 +49,9 @@ const ViewCripts = () => {
             setRefreshing(false);
           }}
         />
-</Card>
-
+      </Card>
     </SafeAreaView>
   )
-  
 }
 
 const styles = StyleSheet.create({
