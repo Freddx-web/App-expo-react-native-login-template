@@ -33,15 +33,16 @@ const PanelView = () => {
         icon={{ name: 'wallet-outline', type: 'ionicon', color: 'white' }}
       />
       <Tab.Item
-        title="Conversion"
-        titleStyle={{ fontSize: 12 }}
-        icon={{ name: 'cash-outline', type: 'ionicon', color: 'white' }}
-      />
-      <Tab.Item
         title="Criptos"
         titleStyle={{ fontSize: 12 }}
         icon={{ name: 'logo-bitcoin', type: 'ionicon', color: 'white' }}
       />
+      <Tab.Item
+        title="Conversion"
+        titleStyle={{ fontSize: 12 }}
+        icon={{ name: 'cash-outline', type: 'ionicon', color: 'white' }}
+      />
+      
     </Tab>
     {/****************************************/}
     <TabView value={index} onChange={setIndex} animationType="spring">
@@ -54,8 +55,8 @@ const PanelView = () => {
         <Text h1>Tab 2</Text>
       </TabView.Item>
       <TabView.Item style={{ backgroundColor: '#afdce133', width: '100%' }}>
-        <Text h1>Tab 3</Text>
-        {/* <ViewCripts /> */ }
+        
+          <ViewCripts /> 
 
       </TabView.Item>
 
