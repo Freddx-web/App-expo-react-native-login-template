@@ -6,6 +6,11 @@ import { Text, Stack, View } from "@react-native-material/core";
 import { Divider } from '@rneui/themed';
 import { Avatar, Card } from 'react-native-paper';
 
+// Style 
+import Styles_Tab3 from '../../../../css/Styles.ViewTab4.js';
+
+// Componets
+import TitleH1 from '../../../../components/TitleH1.js'
 import CoinItem from './CoinItem.js'
 
 const ViewCripts = () => {
@@ -29,12 +34,12 @@ const ViewCripts = () => {
   const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
   return(
-    <SafeAreaView style={styles.container}>
-      <Text h1> Criptos  </Text>
-      <Divider />
+    <SafeAreaView style={Styles_Tab3.container}>
+      <TitleH1> Criptos  </TitleH1>
+      <Divider styles={{padding: 10 }} />
       <Card>
         <FlatList
-          style={styles.list}
+          style={Styles_Tab3.list}
           data={coins.filter(
             (coin) =>
               coin.name.toLowerCase().includes(search.toLocaleLowerCase()) ||
@@ -53,32 +58,5 @@ const ViewCripts = () => {
     </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 10,
-    padding: 10
-  },
-  scrollView: {
-   
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  card:{
-    flex: 1,
-    marginTop: 30,
-    marginHorizontal: 1,
-  },
-  text: {
-    fontSize: 16,
-  },
-  list: {
-    width: "100%",
-    height: "90%",
-    marginTop: 10,
-    padding: 10
-  },
-});
 
 export default ViewCripts; 

@@ -1,45 +1,27 @@
 import React, {useRef, useState, useEffect} from 'react';
-import { View, useWindowDimensions, DrawerLayoutAndroid, Text,
-  StyleSheet, SafeAreaView, ActivityIndicator, Animated } from 'react-native';
+import { View, useWindowDimensions, DrawerLayoutAndroid, Text, SafeAreaView, ActivityIndicator, Animated } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { Button} from '@rneui/themed';
 import { Portal, PaperProvider, Divider } from 'react-native-paper';
 import { Layout, TopNav } from 'react-native-rapi-ui';
+
+// Styles CSS import
+import  Styles_Dash  from '../css/Styles.dashboar.js';
+
 // Views
 import PanelView from './views/Panel/Panelview.js';
-import DrawerView  from './views/Panel/DrawerView.js'
+import DrawerView  from './views/Panel/DrawerView.js';
+
 export default function Dashboard({ navigation }) {
-  //---------------------------------
-  // Style
-  //---------------------------------
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,alignItems: 'center',
-      justifyContent: 'center',padding: 16,
-    },
-    navigationContainer: {
-      backgroundColor: '#ecf0f1',
-    },
-    paragraph: {
-      padding: 16,fontSize: 15,textAlign: 'center',
-    },    
-    loadingtext:{
-      textAlign: "center",alignItems: 'center',
-      justifyContent: 'center',fontSize: 30,
-      fontWeight: 'bold',color: "#000",
-    }, 
-    spinner: {
-      alignItems: "center",justifyContent: "center",
-    },
-  });
+  
   //************************************************** */
   //  LoadingView
   //************************************************** */
   const LoadingView = () => {
     return(
-      <SafeAreaView style={styles.container}>
-        <Text style={styles.loadingtext}>
-          <ActivityIndicator style={styles.spinner} size="large" color="#00ff00" />
+      <SafeAreaView style={Styles_Dash.container}>
+        <Text style={Styles_Dash.loadingtext}>
+          <ActivityIndicator style={Styles_Dash.spinner} size="large" color="#00ff00" />
           {"\n"}
           {"\n"}
             Cargando
@@ -65,7 +47,7 @@ export default function Dashboard({ navigation }) {
       <Divider />
       <Button
         color={'#4caf50'}
-        title="Close drawer"
+        title="Cerrar Panel"
         onPress={() => drawer.current.closeDrawer()}
       />
     </View>
@@ -116,7 +98,7 @@ export default function Dashboard({ navigation }) {
           <PaperProvider>
             <Portal>
               <Button
-                title="Outlog"
+                title="Panel"
                 icon={{
                   name: 'bars',
                   type: 'font-awesome',

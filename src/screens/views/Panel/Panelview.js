@@ -5,8 +5,9 @@
 import React from 'react';
 import { Tab, Text, TabView } from '@rneui/themed';
 // Tab
-import RecentView from '../TabViews/Tab1/RecentView.js';
+import TabMarket from '../TabViews/Tab1/ViewTab1.js';
 import ViewCripts from '../TabViews/Tab3/TabViewCript.js';
+import TabWallet from '../TabViews/Tab2/TabWallet.js';
 
 const PanelView = () => {
   const [index, setIndex] = React.useState(0);
@@ -33,36 +34,36 @@ const PanelView = () => {
         icon={{ name: 'wallet-outline', type: 'ionicon', color: 'white' }}
       />
       <Tab.Item
-        title="Criptos"
-        titleStyle={{ fontSize: 12 }}
-        icon={{ name: 'logo-bitcoin', type: 'ionicon', color: 'white' }}
-      />
-      <Tab.Item
         title="Conversion"
         titleStyle={{ fontSize: 12 }}
         icon={{ name: 'cash-outline', type: 'ionicon', color: 'white' }}
       />
-      
+      <Tab.Item
+        title="Criptos"
+        titleStyle={{ fontSize: 12 }}
+        icon={{ name: 'logo-bitcoin', type: 'ionicon', color: 'white' }}
+      />
     </Tab>
     {/****************************************/}
     <TabView value={index} onChange={setIndex} animationType="spring">
       <TabView.Item style={{ backgroundColor: '#afdce133', width: '100%' }}>
         
-        <RecentView />
+        <TabMarket />
 
       </TabView.Item>
       <TabView.Item style={{ backgroundColor: '#afdce133', width: '100%' }}>
-        <Text h1>Tab 2</Text>
+        <TabWallet />
       </TabView.Item>
+      <TabView.Item style={{ backgroundColor: '#afdce133', width: '100%' }}>
+        <Text h1>Tab 3</Text>
+        {/* <ViewCripts /> */ }
+
+      </TabView.Item>
+      
+
       <TabView.Item style={{ backgroundColor: '#afdce133', width: '100%' }}>
         
-          <ViewCripts /> 
-
-      </TabView.Item>
-
-      <TabView.Item style={{ backgroundColor: '#afdce133', width: '100%' }}>
-        <Text h1>Tab 4</Text>
-        {/* <ViewCripts /> */ }
+         <ViewCripts /> 
 
       </TabView.Item>
     </TabView>
